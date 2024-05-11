@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", function() {
     let moves = 0;
     let gameEnded = false;
 
-    // Játék céljának és feltételeinek üzenete
-    alert("Üdvözöllek az Amőba játékban!\n\nA játék két játékos által játszható. Az első játékos az 'X' jelzéssel kezd, majd váltakozva helyeznek el jelzéseket a mezőkben. A célod három saját jelölés egymás melletti elhelyezése sorban, oszlopban vagy átlósan. Aki először ér el ebben célban három saját jelzést, az nyer a játékban. Sok szerencsét!");
+    // Játék céljának és feltételeinek újrafogalmazása
+    alert("Üdvözöllek az Amőba játékban!\n\nA játékot két játékos játszhatja. Az első játékos az 'X' jelet fogja használni, majd egymás után váltogatva fognak helyezni jeleket a táblán. A cél az, hogy egy játékos helyezzen el három saját jelzést egymás mellett egy sorban, oszlopban vagy átlósan a táblán. Ha ez sikerül valakinek, akkor az illető nyer. Ha minden mező megtelik, és senki sem ér el ilyen sorozatot, akkor a játék döntetlen lesz. Sok szerencsét!");
 
     cells.forEach(cell => {
         cell.addEventListener("click", function() {
@@ -49,4 +49,5 @@ document.addEventListener("DOMContentLoaded", function() {
         return false;
     }
 });
+
 
