@@ -5,11 +5,13 @@ document.addEventListener("DOMContentLoaded", function() {
     let gameEnded = false;
     let soloGame = false;
 
+    // Felteszi a kérdést a játékosnak, hogy szeretne-e egyedül játszani az AI ellen
     if (confirm("Szeretnél egyedül játszani az AI ellen?")) {
         soloGame = true;
+    } else {
+        // Ha nem, megjeleníti a játék leírását
+        alert("Üdvözöllek az Amőba játékban!\n\nA játékot két játékos játszhatja. Az első játékos az 'X' jelet fogja használni, majd egymás után váltogatva fognak helyezni jeleket a táblán. A cél az, hogy egy játékos helyezzen el három saját jelzést egymás mellett egy sorban, oszlopban vagy átlósan a táblán. Ha ez sikerül valakinek, akkor az illető nyer. Ha minden mező megtelik, és senki sem ér el ilyen sorozatot, akkor a játék döntetlen lesz. Sok szerencsét!");
     }
-
-    alert("Üdvözöllek az Amőba játékban!\n\nA játékot két játékos játszhatja. Az első játékos az 'X' jelet fogja használni, majd egymás után váltogatva fognak helyezni jeleket a táblán. A cél az, hogy egy játékos helyezzen el három saját jelzést egymás mellett egy sorban, oszlopban vagy átlósan a táblán. Ha ez sikerül valakinek, akkor az illető nyer. Ha minden mező megtelik, és senki sem ér el ilyen sorozatot, akkor a játék döntetlen lesz. Sok szerencsét!");
 
     cells.forEach(cell => {
         cell.addEventListener("click", function() {
@@ -72,3 +74,4 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 });
+
