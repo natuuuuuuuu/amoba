@@ -4,16 +4,19 @@ document.addEventListener("DOMContentLoaded", function() {
     let moves = 0;
     let gameEnded = false;
 
+    // Játék céljának üzenete
+    alert("Üdvözöllek az Amőba játékban! A célod három saját jelölés egymás melletti elhelyezése sorban, oszlopban vagy átlósan.");
+
     cells.forEach(cell => {
         cell.addEventListener("click", function() {
             if (cell.textContent === "" && !gameEnded) {
                 cell.textContent = currentPlayer;
                 moves++;
                 if (checkWinner()) {
-                    alert(currentPlayer + " nyert!");
+                    alert(currentPlayer + " nyert! Gratulálok!");
                     gameEnded = true;
                 } else if (moves === 9) {
-                    alert("Döntetlen!");
+                    alert("Döntetlen! Minden mező betelt.");
                     gameEnded = true;
                 } else {
                     currentPlayer = currentPlayer === "X" ? "O" : "X";
