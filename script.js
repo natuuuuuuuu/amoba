@@ -3,8 +3,12 @@ document.addEventListener("DOMContentLoaded", function() {
     let currentPlayer = "X";
     let moves = 0;
     let gameEnded = false;
+    let soloGame = false;
 
-    // Játék céljának és feltételeinek újrafogalmazása
+    if (confirm("Szeretnél egyedül játszani az AI ellen?")) {
+        soloGame = true;
+    }
+
     alert("Üdvözöllek az Amőba játékban!\n\nA játékot két játékos játszhatja. Az első játékos az 'X' jelet fogja használni, majd egymás után váltogatva fognak helyezni jeleket a táblán. A cél az, hogy egy játékos helyezzen el három saját jelzést egymás mellett egy sorban, oszlopban vagy átlósan a táblán. Ha ez sikerül valakinek, akkor az illető nyer. Ha minden mező megtelik, és senki sem ér el ilyen sorozatot, akkor a játék döntetlen lesz. Sok szerencsét!");
 
     cells.forEach(cell => {
@@ -20,6 +24,9 @@ document.addEventListener("DOMContentLoaded", function() {
                     gameEnded = true;
                 } else {
                     currentPlayer = currentPlayer === "X" ? "O" : "X";
+                    if (soloGame && currentPlayer === "O") {
+                        performComputerMove();
+                    }
                 }
             }
         });
@@ -47,6 +54,22 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
         return false;
+    }
+
+    function performComputerMove() {
+        const emptyCells = Array.from(cells).filter(cell => cell.textContent === "");
+        const randomIndex = Math.floor(Math.random() * emptyCells.length);
+        emptyCells[randomIndex].textContent = "O";
+        moves++;
+        if (checkWinner()) {
+            alert("Az AI nyert!");
+            gameEnded = true;
+        } else if (moves === 9) {
+            alert("Döntetlen! Minden mező betelt.");
+            gameEnded = true;
+        } else {
+            currentPlayer = "X";
+        }
     }
 });
 
