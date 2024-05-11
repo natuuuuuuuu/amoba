@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 } else {
                     currentPlayer = currentPlayer === "X" ? "O" : "X";
                     if (soloGame && currentPlayer === "O") {
-                        performComputerMove();
+                        setTimeout(performComputerMove, 500); // Késleltetett AI lépés
                     }
                 }
             }
@@ -72,4 +72,3 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 });
-
