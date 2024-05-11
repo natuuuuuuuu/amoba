@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Felteszi a kérdést a játékosnak, hogy szeretne-e egyedül játszani az AI ellen
     if (confirm("Szeretnél egyedül játszani az AI ellen?")) {
         soloGame = true;
+        alert("Üdvözöllek az Amőba játékban az AI ellen!\n\nEbben a módban az 'X' leszel, és az AI az 'O'. A játékosok egymás után váltogatva fognak helyezni jeleket a táblán. A cél az, hogy egy játékos helyezzen el három saját jelzést egymás mellett egy sorban, oszlopban vagy átlósan a táblán. Ha ez sikerül valakinek, akkor az illető nyer. Ha minden mező megtelik, és senki sem ér el ilyen sorozatot, akkor a játék döntetlen lesz. Sok szerencsét!");
     } else {
         // Ha nem, megjeleníti a játék leírását
         alert("Üdvözöllek az Amőba játékban!\n\nA játékot két játékos játszhatja. Az első játékos az 'X' jelet fogja használni, majd egymás után váltogatva fognak helyezni jeleket a táblán. A cél az, hogy egy játékos helyezzen el három saját jelzést egymás mellett egy sorban, oszlopban vagy átlósan a táblán. Ha ez sikerül valakinek, akkor az illető nyer. Ha minden mező megtelik, és senki sem ér el ilyen sorozatot, akkor a játék döntetlen lesz. Sok szerencsét!");
@@ -74,4 +75,3 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 });
-
